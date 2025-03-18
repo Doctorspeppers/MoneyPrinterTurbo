@@ -3,8 +3,9 @@ import os
 import pathlib
 import shutil
 from typing import Union
+from fastapi import Depends
 
-from fastapi import BackgroundTasks, Depends, Path, Request, UploadFile
+from fastapi import BackgroundTasks, Path, Request, UploadFile
 from fastapi.params import File
 from fastapi.responses import FileResponse, StreamingResponse
 from loguru import logger

@@ -57,6 +57,8 @@ support_locales = [
     "fr-FR",
     "vi-VN",
     "th-TH",
+    "pt-BR",
+    "es-ES",
 ]
 
 font_dir = os.path.join(root_dir, "resource", "fonts")
