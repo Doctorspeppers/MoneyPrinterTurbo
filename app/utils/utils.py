@@ -141,19 +141,18 @@ def time_convert_seconds_to_hmsm(seconds) -> str:
     return "{:02d}:{:02d}:{:02d},{:03d}".format(hours, minutes, seconds, milliseconds)
 
 
-def text_to_srt(idx: int, msg: str, start_time: float, end_time: float) -> str:
-    start_time = time_convert_seconds_to_hmsm(start_time)
-    end_time = time_convert_seconds_to_hmsm(end_time)
-    srt = """%d
-%s --> %s
-%s
-        """ % (
-        idx,
-        start_time,
-        end_time,
-        msg,
-    )
-    return srt
+def text_to_srt(idx: int, text: str, start_time: float, end_time: float) -> str:
+    """
+    Convert text to srt format with {\an5} tag for center alignment
+    :param idx: subtitle index
+    :param text: subtitle text
+    :param start_time: start time in seconds
+    :param end_time: end time in seconds
+    :return: srt format string
+    """
+    start = format_time(start_time)
+    end = format_time(end_time)
+    return f"{idx}\n{start} --> {end}\n{{\an5}}{text}\n"
 
 
 def str_contains_punctuation(word):
